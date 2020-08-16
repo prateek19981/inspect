@@ -11,6 +11,7 @@ import Userprofile from "./Userprofile";
 import Home from "./Home";
 import "../App.css";
 import { initialState, userReducer } from "../reducer/user";
+import M from "materialize-css";
 export const userContext = createContext();
 
 const Routing = () => {
@@ -55,12 +56,17 @@ const Routing = () => {
 };
 
 function App() {
+  let options = ["one,two"];
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   return (
     <div className="App">
       <userContext.Provider value={{ state, dispatch }}>
         <BrowserRouter>
+          {document.addEventListener("DOMContentLoaded", function () {
+            var elems = document.querySelectorAll(".sidenav");
+            var instances = M.Sidenav.init(elems, options);
+          })}
           <Navbar />
           <Routing />
         </BrowserRouter>

@@ -69,11 +69,17 @@ const Navbar = (props) => {
               Inspect
             </h4>
           </Link>
+          <a href="" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {renderList()}
           </ul>
         </div>
       </nav>
+      <ul class="sidenav sidenav-close" id="mobile-demo">
+        {renderList()}
+      </ul>
     </div>
   );
 };
